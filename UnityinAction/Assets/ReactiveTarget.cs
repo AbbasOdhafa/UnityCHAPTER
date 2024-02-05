@@ -5,7 +5,11 @@ using UnityEngine;
 public class ReactiveTarget : MonoBehaviour
 {
  public void ReactToHit(){
-    StartCoroutine(Die());
+      WanderingAI behavior = GetComponent<WanderingAI>();
+      if (behavior != null){
+         behavior.SetAlive(false);
+      }
+      StartCoroutine(Die());
  }
 
  private IEnumerator Die(){
